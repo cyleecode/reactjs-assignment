@@ -1,0 +1,13 @@
+.divRow {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 15vw;
+  div {
+    flex: 1;
+  }
+}
+.divReverseAlignment {
+  margin-top: 20px;
+  align-self: flex-end;
+}
