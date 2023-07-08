@@ -1,0 +1,10 @@
+.order-item {
+  display: flex;
+  margin: 5px;
+  span {
+    flex: 1;
+  }
+  button {
+    flex: 1;
+  }
+}
