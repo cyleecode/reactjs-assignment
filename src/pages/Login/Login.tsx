@@ -3,7 +3,7 @@ import styles from "./Login.module.scss";
 const LoginPage = () => {
   return (
     <>
-      <div className={styles.divCenter}>
+      <div className="divCenter">
         <Login></Login>
       </div>
     </>
