@@ -1,4 +1,4 @@
-import { Logout, Order } from "../../components";
+import { Order } from "../../components";
 import { ContextManager } from "../../contexts/all-context";
 import styles from "./Home.module.scss";
 const HomePage = () => {
@@ -6,9 +6,7 @@ const HomePage = () => {
   return (
     <>
       <div className={`${styles.divRow}`}>
-        <div className={`${styles.divReverseAlignment}`}>
-          <Logout></Logout>
-        </div>
+        <div></div>
         <div>
           <Order></Order>
         </div>
