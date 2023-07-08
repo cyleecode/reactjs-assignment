@@ -8,7 +8,7 @@ const videoConstraints = {
   height: 400,
   facingMode: "user",
 };
-const Kyc = () => {
+const Kyc = ({ setIsFaceCaptured }: any) => {
   const _context: any = ContextManager();
   const navigate = useNavigate();
   const [isCaptureEnable, setCaptureEnable] = useState<boolean>(false);
@@ -26,7 +26,6 @@ const Kyc = () => {
   }, [webcamRef]);
 
   useEffect(() => {
-    console.log(isCaptureEnable);
     setCaptureEnable(true);
   }, []);
 
@@ -75,6 +74,13 @@ const Kyc = () => {
               }}
             >
               Retake
+            </button>
+            <button
+              onClick={() => {
+                setIsFaceCaptured(true);
+              }}
+            >
+              Done
             </button>
           </div>
         </>
