@@ -13,12 +13,13 @@ export interface IUserDetails {
   created: Date | undefined;
 }
 
-const Register = () => {
+const Register = ({ setIsSubmitted }: any) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [retypePassword, setRetypePassword] = useState("");
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsSubmitted(true);
   };
   return (
     <>
