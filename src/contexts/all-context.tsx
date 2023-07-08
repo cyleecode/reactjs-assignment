@@ -5,15 +5,21 @@ export interface IAllContext {
   setOrders?: any;
   faceImage?: any;
   setFaceImage?: any;
-  login?: any;
+  login?: ILoginDetails;
   setLogin?: any;
+}
+
+export interface ILoginDetails {
+  email: string;
+  role: number;
+  activated: boolean;
 }
 const AllContext = React.createContext({} as IAllContext);
 
 export const StateProvider = ({ children }: any) => {
   const [orders, setOrders] = useState();
   const [faceImage, setFaceImage] = useState();
-  const [login, setLogin] = useState();
+  const [login, setLogin] = useState<ILoginDetails>();
   const value = {
     orders,
     setOrders,
