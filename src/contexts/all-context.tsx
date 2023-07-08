@@ -6,7 +6,7 @@ export interface IAllContext {
   faceImage?: any;
   setFaceImage?: any;
   login?: ILoginDetails;
-  setLogin?: any;
+  setLogin?: React.Dispatch<React.SetStateAction<ILoginDetails | undefined>>;
 }
 
 export interface ILoginDetails {

@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { ContextManager } from "../../contexts/all-context";
 import styles from "./Login.module.scss";
+import { useNavigate } from "react-router-dom";
+
+const mockAcc = {
+  email: "test@test.com",
+  password: "test1234",
+};
 
 const Login = () => {
   const _c = ContextManager();
@@ -8,13 +14,26 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [attemp, setAttemp] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const reset_pass_url = "/reset";
+  const navigate = useNavigate();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     setIsLoading(true);
     event.preventDefault();
     setAttemp(attemp + 1);
     //store login to ContextManager
 
+    //mock login process
     setTimeout(() => {
+      // if (email === mockAcc.email && password === mockAcc.password) {
+      if (_c.setLogin) {
+        _c.setLogin({
+          email: mockAcc.email,
+          role: 1,
+          activated: false,
+        });
+        navigate(`/activate/${mockAcc.email}`);
+      }
+      // }
       setIsLoading(false);
     }, 1000);
   };
@@ -53,7 +72,7 @@ const Login = () => {
           </span>
         </div>
         <br></br>
-        <a href="/forgot_password">forgot password</a>
+        <a href={reset_pass_url}>forgot password</a>
       </form>
     </>
   );
