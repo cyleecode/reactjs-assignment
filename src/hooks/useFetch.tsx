@@ -9,7 +9,7 @@ const approveUrl = "/approve";
 
 async function postData(url = "", data = {}) {
   let result;
-
+  const token = localStorage.getItem("sessionToken");
   try {
     const response = await fetch(url, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
@@ -19,6 +19,7 @@ async function postData(url = "", data = {}) {
       headers: {
         "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
+        Authorization: `Bearer ${token}`,
       },
       redirect: "follow", // manual, *follow, error
       referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
